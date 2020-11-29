@@ -1,2 +1,0 @@
-healthy
-leaf_rust
