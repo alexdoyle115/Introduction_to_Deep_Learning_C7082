@@ -1,0 +1,2 @@
+# C7082_Assignment
+Image dataset consisting of 1459 images of wheat leaves, split into 2 subsets 600 in the nitrogen deficent group (300 deficient, 300 control) and 859 leaves infected with leaf rust(368 infrcted, 491 conrtol). The aim of this project is to use a convoltional neural network to correctly identify the plants infected with leaf rust. Sourced from the Arya, Sunny; Singh, Biswabiplab (2020), “Wheat nitrogen deficiency and leaf rust image dataset”, Mendeley Data.
