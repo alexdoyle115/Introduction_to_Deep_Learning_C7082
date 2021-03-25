@@ -58,7 +58,7 @@ From the table in Fig 2. there is an imbalance in the number of samples in each 
 
 A link to a notebook where all images are ran through the model is attached [here.](https://github.com/alexdoyle115/C7082_Assignment/blob/main/All_images_and_augmentation_included.ipynb)
 
-####2.1 Convoltional Neural Network
+#### 2.1 Convoltional Neural Network
 
 The neural network in this analysis is a basic covenet using alternating layers of
 <ul> 
@@ -92,7 +92,7 @@ By passing the various subsets of images through the neural network it has train
 ![Fig. 6. CNN Model Results - Loss().](./Images/training_loss.png) <br> *Fig. 6. CNN Model Results - Loss*
 
 #### Visulaising what the covnets learn
-Visualing the various layers of the convoltional neural network offers insight into what the "black box" that is a neural network is actually picking up on. The `Rust_identifier_1` model that was trained earlier in the analysis is reloaded as well as the `models`package in `keras`. The image below in Fig. 7 which is a leaf infected with stripes of rust. Ideally the model should see some activity in these regions.
+Visualing the various layers of the convoltional neural network offers insight into what the "black box" that is a neural network is actually picking up on. The `Rust_identifier_1` model that was trained earlier in the analysis is reloaded as well as the `models`package in `keras`. The image below in Fig. 7 which is a leaf infected with stripes of rust. Ideally the model should see some activity in these regions. Fig 9 is a similar process with an image that is nitrogen deficent. 
 
 
 ![Fig. 7. Sample Rust Image().](./Images/sample.png) <br>*Fig. 7. Sample Rust Image*
@@ -101,7 +101,6 @@ We can see as images is processed through the layers how the detail decreases.
 
 ![Fig. 8. Layer Activations on Rust leaf().](./Images/layers2.png) <br> *Fig. 8. Layer Activations on Rust leaf*
 
-Fig 9 is a similar process with an image that is nitrogen deficent. 
 
 ![Fig. 9. Sample Deficent Image().](./Images/sample2.png) <br> *Fig. 9. Sample Deficent Image*
 
