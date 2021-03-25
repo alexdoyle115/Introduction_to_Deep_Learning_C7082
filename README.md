@@ -26,7 +26,7 @@ The objectives of this analysis were to create a convoltional neural network cap
 
 ### Data 
 
-![Fig. 1. Sample Images().](./Images/nd1.png)
+![Fig. 1. Sample Images().](./Images/nd1.png) <br> *Fig. 1. Sample Images*
 
 The data for this analysis consists of 1459 images of wheat leaves, split into 2 subsets Nitrogen Deficient (abiotic stress) and Rust (biotic stress) and further split outlined in Fig. 2. below (the number of images in each subset). 
 The data was collected with an RGB camera from a wheat crop sown in the winter 2019 and harvested in 2020, the fields were a part of the Indian Agriculture Research Institute. The leaf images were acquired at the booting stage of a wheat crop. After the pictures were taken, the images were segmented from the background using Otsu-based masking (Arya et al. 2020).
