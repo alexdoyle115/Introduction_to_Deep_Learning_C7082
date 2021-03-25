@@ -34,7 +34,6 @@ The data was collected with an RGB camera from a wheat crop sown in the winter 2
 The files for this analysis can be found at this [link.](https://data.mendeley.com/datasets/th422bg4yd/1). 
 
 Fig. 2.
-
 | Nitrogen Deficient | Rust         |
 |--------------------|--------------|
 | **Train:**         |              |
@@ -48,7 +47,6 @@ Fig. 2.
 | Control (44)       | Control(73)  |
 
 ### 2. Methods 
-
 
 
 Setting up the directories
@@ -71,7 +69,7 @@ The neural network in this analysis is a basic covenet using alternating layers 
 
 The model is based off the convolutional neural network used to classify cat and dog images in "Deep Learning with Python" (Chollet, 2018), the binary classification problem uses hidden layers alternating between Conv2D and Maxpooling to identify local patterns such as edges, with dense layers to identify these local patterns. The main difference between my model and the dog and cat one is that the dog and cat one uses binary classification by utilizing the sigmoid activation. To correctly identify the 3 different classes (Nitrogen Deficient, Leaf Rust and Healthy) the 'SoftMax' activation is used with 3 classes. (Chollet, 2017).  
 
-![Fig. 3. CNN Model Structure().](./Images/model.png)
+![Fig. 3. CNN Model Structure().](./Images/model.png) <br>*Fig. 3. CNN Model Structure*
 
 Looking at the model summary we see the vaious layers along with depth and size of the feature maps. The feature size (148x148) is somewhat arbitrary and is decreasing though the max pooling layers while the feature depth starts at 32 increasing to 128 before flattening. In 'Deep learning with Python' it highlights that 'rmsprop' is a suitable optimizer for most applications as it reduces the decay of the learning rate (Lakshmi & Zhou, 2000) and breaks down the appropriate last-layer activation (for multiclass, single label classification the softmax activation and categorical_crossenthropy as the loss function) (Challet, 2017).
 
@@ -89,29 +87,29 @@ Once the data is in a suitable format for the model, it is now fit our model usi
 ### 3. Results
 By passing the various subsets of images through the neural network it has trained the hidden units in the layers to take a series of numbers and use these numbers to estimate what group each image belongs. The results are plotted by comparing the training data and the validation data. Looking at the training data there is big jumps in the accuracy in the first 4 epochs, but this slows as it approaches 100% accuracy. It never reaches 1:1 prediction accuracy but in the final epoch it results in 97.02% prediction accuracy. Unfortunately, the same cannot be said for the validation accuracy which is much more important. There is an inconsistency with networks ability to correctly predict the model, the erratic highs, and lows of seen in the plot may be caused by the small number of images available. The highest level of accuracy achieved was 97.5% on the 12th epoch the following iterations resulted in a drop off in accuracy which may be contributed to overfitting.
 
-![Fig. 5. CNN Model Results - Accuracy().](./Images/training_acccuracy.png)
+![Fig. 5. CNN Model Results - Accuracy().](./Images/training_acccuracy.png) <br> *Fig. 5. CNN Model Results - Accuracy*
 
-![Fig. 6. CNN Model Results - Loss().](./Images/training_loss.png)
+![Fig. 6. CNN Model Results - Loss().](./Images/training_loss.png) <br> *Fig. 6. CNN Model Results - Loss*
 
 #### Visulaising what the covnets learn
 Visualing the various layers of the convoltional neural network offers insight into what the "black box" that is a neural network is actually picking up on. The `Rust_identifier_1` model that was trained earlier in the analysis is reloaded as well as the `models`package in `keras`. The image below in Fig. 7 which is a leaf infected with stripes of rust. Ideally the model should see some activity in these regions.
 
 
-![Fig. 7. Sample Rust Image().](./Images/sample.png)
+![Fig. 7. Sample Rust Image().](./Images/sample.png) <br>*Fig. 7. Sample Rust Image*
 
 We can see as images is processed through the layers how the detail decreases.
 
-![Fig. 8. Layer Activations on Rust leaf().](./Images/layers2.png)
+![Fig. 8. Layer Activations on Rust leaf().](./Images/layers2.png) <br> *Fig. 8. Layer Activations on Rust leaf*
 
 Fig 9 is a similar process with an image that is nitrogen deficent. 
 
-![Fig. 9. Sample Deficent Image().](./Images/sample2.png)
+![Fig. 9. Sample Deficent Image().](./Images/sample2.png) <br> *Fig. 9. Sample Deficent Image*
 
-![Fig. 10. Layer Activations on Nitrogen Deficent Leaf().](./Images/layers4.png)
+![Fig. 10. Layer Activations on Nitrogen Deficent Leaf().](./Images/layers4.png) <br> *Fig. 10. Layer Activations on Nitrogen Deficent Leaf*
 
 #### Testing the Accuracy of the model
 
-![Fig. 11. Test Data set Accuracy().](./Images/test_results.png)
+![Fig. 11. Test Data set Accuracy().](./Images/test_results.png) <br> *Fig. 11. Test Data set Accuracy*
 
 When diagnosising nitrogen deficiency in wheat it would be hoped that the network would focus on the yellowing of the tips or possibly paler green colour of the leaf. Comparing the activations they indicate that it is picking up on the yellowing near the tips. In both cases the channnels in the first layer do pickup on these regions for each disease and  are identified with subsequent layers highlighting the rust infection or yellowing of the tips. 
 
