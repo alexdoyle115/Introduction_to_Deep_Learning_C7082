@@ -34,17 +34,15 @@ The files for this analysis can be found at this [link.](https://data.mendeley.c
 
 Fig. 2.
 
-Nitrogen Deficient | Rust |
----|--- |
-**Train:** |  |
-    N deficient (209)|Rust (258) |
-    Control (209)| Control(258) |
-    
-**Test:** |  |
-    N deficient (44)|Rust (54) |
-    Control (44)|Control (73) |
-    
-**Validation:** |      |
-    N deficient (44)|Rust (54) |
-    Control (44)|Control(73) |
+| Nitrogen Deficient | Rust         |
+|--------------------|--------------|
+| **Train:**         |              |
+| N deficient (209)  | Rust (258)   |
+| Control (209)      | Control(258) |
+| **Test:**          |              |
+| N deficient (44)   | Rust (54)    |
+| Control (44)       | Control (73) |
+| **Validation:**    |              |
+| N deficient (44)   | Rust (54)    |
+| Control (44)       | Control(73)  |
 
