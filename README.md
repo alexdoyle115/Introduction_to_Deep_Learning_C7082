@@ -89,7 +89,7 @@ Once the data is in a suitable format for the model, it is now fit our model usi
 ### 3. Results
 By passing the various subsets of images through the neural network it has trained the hidden units in the layers to take a series of numbers and use these numbers to estimate what group each image belongs. The results are plotted by comparing the training data and the validation data. Looking at the training data there is big jumps in the accuracy in the first 4 epochs, but this slows as it approaches 100% accuracy. It never reaches 1:1 prediction accuracy but in the final epoch it results in 97.02% prediction accuracy. Unfortunately, the same cannot be said for the validation accuracy which is much more important. There is an inconsistency with networks ability to correctly predict the model, the erratic highs, and lows of seen in the plot may be caused by the small number of images available. The highest level of accuracy achieved was 97.5% on the 12th epoch the following iterations resulted in a drop off in accuracy which may be contributed to overfitting.
 
-![Fig. 5. CNN Model Results - Accuracy().](./Images/training_accuracy.png)
+![Fig. 5. CNN Model Results - Accuracy().](./Images/training_acccuracy.png)
 
 ![Fig. 6. CNN Model Results - Loss().](./Images/training_loss.png)
 
@@ -110,7 +110,9 @@ Fig 9 is a similar process with an image that is nitrogen deficent.
 ![Fig. 10. Layer Activations on Nitrogen Deficent Leaf().](./Images/layers4.png)
 
 #### Testing the Accuracy of the model
+
 ![Fig. 11. Test Data set Accuracy().](./Images/test_results.png)
+
 When diagnosising nitrogen deficiency in wheat it would be hoped that the network would focus on the yellowing of the tips or possibly paler green colour of the leaf. Comparing the activations they indicate that it is picking up on the yellowing near the tips. In both cases the channnels in the first layer do pickup on these regions for each disease and  are identified with subsequent layers highlighting the rust infection or yellowing of the tips. 
 
 We can see the differences in the individual channels as well as between layers. Certain channels appear to pick up on more information in comparision to others Comparing the images in the plot above we can see the output of the model that there is some alternation between layers and what they are highlighting. The first layer identifies the edges of the leaf blade and as the layers increase the amount of information available decreases and starts to become less visually interpretable, but it is increasing the information about the class of the image. 
