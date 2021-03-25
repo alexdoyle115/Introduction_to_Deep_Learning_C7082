@@ -82,7 +82,9 @@ The images are broken up into batches of 20 tensors. The 20 images are resized t
 #### Running the model
 Once the data is in a suitable format for the model, it is now fit our model using the `model.fit`. The data is being generated in batches of 20 inputs indefinatly, therefore the generator needs to know how many samples to to draw from the generator before declaring an epoch. In this case there are 722 training images, with 20 images per batch, it will take 36 steps to run all images through. 
 
-![Fig. 4. CNN Model Results().](./Images/model_results.png "Fig. 4. CNN Model Results")
+
+![Fig. 4. CNN Model Results().](./Images/model_results.png) *Fig. 4. CNN Model Results*
+
 
 ### 3. Results
 By passing the various subsets of images through the neural network it has trained the hidden units in the layers to take a series of numbers and use these numbers to estimate what group each image belongs. The results are plotted by comparing the training data and the validation data. Looking at the training data there is big jumps in the accuracy in the first 4 epochs, but this slows as it approaches 100% accuracy. It never reaches 1:1 prediction accuracy but in the final epoch it results in 97.02% prediction accuracy. Unfortunately, the same cannot be said for the validation accuracy which is much more important. There is an inconsistency with networks ability to correctly predict the model, the erratic highs, and lows of seen in the plot may be caused by the small number of images available. The highest level of accuracy achieved was 97.5% on the 12th epoch the following iterations resulted in a drop off in accuracy which may be contributed to overfitting.
