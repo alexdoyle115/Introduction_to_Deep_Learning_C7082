@@ -25,6 +25,7 @@ To add a layer of practicality a third class is included in the data, leaves tha
 The objectives of this analysis were to create a convoltional neural network capable of identifying disease, tune the model for highest levels of accuracy and examine what the deep learning model is using for classifaction i.e., the leaf rust pustules or something less expected. With the overarching aim of this analysis is to correctly identify images of wheat leaves infected with leaf rust, leaves suffering with a nitrogen deficiency and leaves that are perfectly healthy.
 
 ### Data 
+
 ![Fig. 1. Sample Images().](./Images/nd1.png)
 
 The data for this analysis consists of 1459 images of wheat leaves, split into 2 subsets Nitrogen Deficient (abiotic stress) and Rust (biotic stress) and further split outlined in Fig. 2. below (the number of images in each subset). 
@@ -48,11 +49,10 @@ Fig. 2.
 
 ### 2. Methods 
 
----
+
 
 Setting up the directories
 
----
 The files for this analysis were organised rather awkwardly, 2 seperate folders with 12 subfolders 6 of which are for control images. To reduce the complexity, the directories were set up to include all files in a single folder divided according to train, test and validation. This creates and organises the directories before filling them with the appropriate files. Google drive is used to store the images and redistibute the files between various repositories. 
 
 From the table in Fig 2. there is an imbalance in the number of samples in each class, almost half of all images are in the control class. Including all images in the model led to problems with accuracy and noise. By not including the images in one of the control folders it resulted in a more accurate consistant model. 
@@ -61,8 +61,6 @@ From the table in Fig 2. there is an imbalance in the number of samples in each 
 A link to a notebook where all images are ran through the model is attached [here.](https://github.com/alexdoyle115/C7082_Assignment/blob/main/All_images_and_augmentation_included.ipynb)
 
 ####2.1 Convoltional Neural Network
----
-#### The Neural Network
 
 The neural network in this analysis is a basic covenet using alternating layers of
 <ul> 
@@ -81,7 +79,7 @@ Looking at the model summary we see the vaious layers along with depth and size 
 Using keras's `prepossing.image` packages it automatically converts the jpeg files from a RGB grid of pixels into tensors that are rescaled to be between 0 and 1 which works better in neural networks. 
 The images are broken up into batches of 20 tensors. The 20 images are resized to 150 by 150 which is arbitrary but important to keep consistant images fed into the model. As the images are colour, individual tensors are created for the each of the red, green, blue colour layers resulting in 3 different tensors in the input.  The resulting rezised images are fed in the batchs of 20 into the model which accounts for 1 step in the epoch. This processing produces batches in the shape (`20, 150, 150, 3`). To check the images is in the correct class labels are created, as it is a classification problem into 3 classes it requires 3 different labels resultuing in batches of (`20, 3`). 
 
-##### Running the model
+#### Running the model
 Once the data is in a suitable format for the model, it is now fit our model using the `model.fit`. The data is being generated in batches of 20 inputs indefinatly, therefore the generator needs to know how many samples to to draw from the generator before declaring an epoch. In this case there are 722 training images, with 20 images per batch, it will take 36 stepsh to run all images through. 
 
 ![Fig. 4. CNN Model Results().](./Images/model_results.png)
@@ -120,15 +118,14 @@ We can see the differences in the individual channels as well as between layers.
 Running the model on the test data gives a true representation of how well the model has worked. Running it in batches of 10 over 17 steps it results in an accuracy of 92.94%. Fig. 5. and Fig. 6. shows some inconsistency in the validation error. A factor influencing that may be due to the validation step having 40 images available each time. The accuracy may be lowered by slight over fitting which can be seen in Fig. 3. as the validation error apppears to drop as the training error continues to rise.
 
 ### 4. Discussion
----
+
 While the results from the model are not perfect, they are encouraging. The Convoltional Neural Network was able to correctly classify images into 3 groups with an accuracy of over 92% on test data. There is potential for impoving the accuracy with a couple of tweaks and particularly accessing more images. Gathering a larger dataset may improve accuracy but would allow for greater consistency. I tried to gather some pictures of my own to test with the model, unfortunatly leaf rust infections are very rare at this early stage in the crop development. 
 
 A model such as this while very simple it could be built upon, as mentioned before further images to increase accuracy, images of leaves that have not been segmented from the background to make it more practical and the addition of a system to reliably take pictures and run them through the model would offer the option of installing it on a robot. With companies such as the small robot company (link can be found [here](https://www.smallrobotcompany.com/)) we could see a multitude of sensor robots sent into the fields to detect regions of disease through correct identification to allow for more efficent use of fertilizers and fungicides. By removing the human element from the diagnosis it could offer a more consistent picture of the area, this would be particularly useful in work such as resistance scoring in new crop varieties.
 
 ### 5.Literature
-**Data**
 
-Arya, Sunny; Singh, Biswabiplab (2020), “Wheat nitrogen deficiency and leaf rust image dataset”, Mendeley Data, V1, doi: 10.17632/th422bg4yd.1
+**Data** -Arya, Sunny; Singh, Biswabiplab (2020), “Wheat nitrogen deficiency and leaf rust image dataset”, Mendeley Data, V1, doi: 10.17632/th422bg4yd.1
  
 Bock, C.H., Parker, P.E., Cook, A.Z., Riley, T. and Gottwald, T.R., 2009. Comparison of assessment of citrus canker foliar symptoms by experienced and inexperienced raters. Plant Disease, 93(4), pp.412-424.
 
